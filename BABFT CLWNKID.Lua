@@ -1,159 +1,102 @@
-local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "BABFT", HidePremium = false, IntroText = "CLWNKID", SaveConfig = true, ConfigFolder = "CLWNKID"})
-
-local Tab = Window:MakeTab({
-	Name = "Welcome",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-	})
-local Section = Tab:AddSection({
-	Name = "Author: CLWNKID"
-})
-Tab:AddParagraph("Notification!","HAHAHAH, BRO, THESE ARE NOT NOTIFICATIONS. Okay, in short, have a nice game. I'm just learning how to create scripts, so there may be mistakes!")
-Tab:AddLabel("The script is designed for the game: Build A Boat For Treasure")
-OrionLib:MakeNotification({
-	Name = "Hey!",
-	Content = "Hey, sign up for this: https://t.me/clownykid",
-	Image = "rbxassetid://4483345998",
-	Time = 10
-})
-local Tab = Window:MakeTab({
-	Name = "Home",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = Tab:AddSection({
-	Name = "Players"
-})
-Tab:AddSlider({
-	Name = "WalkSpeed",
-	Min = 16,
-	Max = 500,
-	Default = 50,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "WS",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = Value
-	end    
-})
-Tab:AddSlider({
-	Name = "Jump Power",
-	Min = 50,
-	Max = 500,
-	Default = 100,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "JP",
-	Callback = function(Value)
-		game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
-	end    
-})
-local Section = Tab:AddSection({
-	Name = "Fly"
-	})
-	Tab:AddButton({
-	Name = "VFly",
-	Callback = function()
-      		loadstring(game:HttpGet("https://pastebin.com/raw/MHE1cbWF"))()
-  	end    
-})
-Tab:AddParagraph("Read it","With this VFly, you will be able to fly on your buildings (you must be driving)")
-local Tab = Window:MakeTab({
-	Name = "TP",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = Tab:AddSection({
-	Name = "Team"
-})
-Tab:AddButton({
-	Name = "Blue Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(469.263947, -13.100008, 330.586609, -1, 0, 0, 0, 1, 0, 0, 0, -1)
-  	end    
-})
-Tab:AddButton({
-	Name = "Red Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(469.263947, -13.100008, -34.4133759, -1, 0, 0, 0, 1, 0, 0, 0, -1)
-  	end    
-})
-Tab:AddButton({
-	Name = "White Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-19.4842529, -13.100008, -592.937622, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-  	end    
-})
-Tab:AddButton({
-	Name = "Yellow Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-576.394958, -13.1000061, 610.19989, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-  	end    
-})
-Tab:AddButton({
-	Name = "Pink Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(469.263947, -13.100008, 677.586609, -1, 0, 0, 0, 1, 0, 0, 0, -1)
-  	end    
-})
-Tab:AddButton({
-	Name = "Green Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-576.394958, -13.1000061, 263.19989, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-  	end    
-})
-Tab:AddButton({
-	Name = "Black Team",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-576.394958, -13.1000061, -99.8001022, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-  	end    
-})
-local Section = Tab:AddSection({
-	Name = "The chest is at the end"
-})
-Tab:AddButton({
-	Name = "TP Chest",
-	Callback = function()
-      		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-20.7065125, -300.739624, 9300.35645, 0, 0, -1, 0, 1, 0, 1, 0, 0)
-    	end    
-})
-Tab:AddParagraph("WARNING!","BEFORE USING THE TELEPORT TO THE CHEST, GO THROUGH THE FIRST PART WITH THE STONES. OTHERWISE, YOU WILL DIE!")
-local Tab = Window:MakeTab({
-	Name = "AutoFarm",
-	Icon = "rbxassetid://4483345998",
-	PremiumOnly = false
-})
-local Section = Tab:AddSection({
-	Name = "AutoFarm Gold"
-})
-Tab:AddParagraph("Read it","With this autopharm, you will fly forward, while all the players will see you!")
-Tab:AddButton({
-	Name = "AutoFarm",
-	Callback = function()
-      		local players = game:GetService("Players")
-local plr = players.LocalPlayer
-local tween = game:GetService("TweenService")
-game.Workspace.Gravity = 0.5 -- reduces glitchiness
-function main()
-    local humroot = plr.Character:WaitForChild("HumanoidRootPart")
-    local startTween = tween:Create(humroot, TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {CFrame = CFrame.new(-51.3946900, 67.3164978, 814.888123, -0.999501824, -0.00451373775, 0.0312365349, -8.62000427e-09, 0.989720345, 0.14301616, -0.0315609723, 0.142944917, -0.989227295)})
-    startTween:Play()
-    startTween.Completed:Wait()
-    local mainTween = tween:Create(humroot, TweenInfo.new(22, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {CFrame = CFrame.new(-77.0485153, 82.6013031, 8625.86719, -0.995574772, 0.022579968, -0.0912195817, -4.97565011e-09, 0.970703065, 0.240282282, 0.0939726979, 0.23921898, -0.966407478)})
-    mainTween:Play()
-    mainTween.Completed:Wait()
-    local endTween = tween:Create(humroot, TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.Out, 0, false, 0), {CFrame = game:GetService("Workspace").BoatStages.NormalStages.TheEnd.GoldenChest.Trigger.CFrame})
-    endTween:Play()
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-    wait(0.60)
-game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-
-end
-main()
-plr.CharacterAdded:Connect(function(char)
-    char:WaitForChild("HumanoidRootPart")
-    main()
-end)
-  	end    
-})
+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
